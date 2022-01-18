@@ -52,6 +52,7 @@ public class AuthController {
 			authService.회원가입(user);
 			return "auth/signin";
 		}
+
 		
 		
 
