@@ -2,18 +2,26 @@ package com.cos.photogramstart.web;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
+import com.cos.photogramstart.Service.UserService;
 import com.cos.photogramstart.config.auth.PrincipalDetail;
+import com.cos.photogramstart.web.dto.user.UserProfileDto;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class UserController {
 
+	private final UserService userService;
 	
-	@GetMapping("/user/{id}")
-	public String user(@PathVariable int id) {
+	@GetMapping("/user/{pageUserId}")
+	public String user(@PathVariable int pageUserId, @AuthenticationPrincipal PrincipalDetail principalDetail,  Model model) {
+		UserProfileDto dto = userService.회원프로필(pageUserId, principalDetail.getUser().getId());
+		model.addAttribute("dto", dto);
 		return "user/profile";
 	}
 	
