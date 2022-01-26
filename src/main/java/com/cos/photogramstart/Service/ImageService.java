@@ -3,11 +3,14 @@ package com.cos.photogramstart.Service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.cos.photogramstart.config.auth.PrincipalDetail;
@@ -22,6 +25,15 @@ import lombok.RequiredArgsConstructor;
 public class ImageService {
 
 	private final ImageRepository imageRepository;
+	
+
+	@Transactional
+	public Page<Image> 이미지불러오기(int principalId, Pageable pageable) {
+		Page<Image> imageList = imageRepository.mystory(principalId,pageable);
+		return imageList;
+	}
+	
+
 	
 	@Value("${file.path}")
 	private String uploadFolder;

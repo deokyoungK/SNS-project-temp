@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.photogramstart.config.auth.PrincipalDetail;
+import com.cos.photogramstart.domain.subscribe.SubscribeRepository;
 import com.cos.photogramstart.domain.user.User;
 import com.cos.photogramstart.domain.user.UserRepository;
 import com.cos.photogramstart.handler.ex.CustomException;
@@ -19,7 +20,7 @@ public class UserService {
 	
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+	private final SubscribeRepository subscribeRepository;
 	
 	@Transactional
 	public UserProfileDto 회원프로필(int pageUserId, int principalId) {
@@ -33,6 +34,12 @@ public class UserService {
 		dto.setUser(userEntity);
 		dto.setPageOwnerState(pageUserId == principalId);
 		dto.setImageCount(userEntity.getImages().size());
+		
+		int mySubscribeCount = subscribeRepository.mySubscribeCount(pageUserId);
+		int mySubscribeState = subscribeRepository.mySubscribeState(principalId, pageUserId);
+		
+		dto.setSubscribeCount(mySubscribeCount);
+		dto.setSubscribeState(mySubscribeState == 1);
 		return dto;
 	}
 	
