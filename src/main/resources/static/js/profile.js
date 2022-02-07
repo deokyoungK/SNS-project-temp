@@ -43,19 +43,19 @@ function toggleSubscribe(toUserId, obj) {
 // (2) 구독자 정보  모달 보기
 function subscribeInfoModalOpen(pageUserId) {
 	$(".modal-subscribe").css("display", "flex");
-	
+
 	$.ajax({
 		url: `/api/user/${pageUserId}/subscribe`,
 		dataType: "json"
-	}).done(res=>{
+	}).done(res => {
 		console.log(res.data);
-		
-		res.data.forEach((u)=>{
+
+		res.data.forEach((u) => {
 			let item = getSubscribeModalItem(u);
 			$("#subscribeModalList").append(item);
 		});
-	}).fail(error=>{
-		console.log("구독정보 불러오기 오류",error);
+	}).fail(error => {
+		console.log("구독정보 불러오기 오류", error);
 	});
 }
 
@@ -68,11 +68,11 @@ function getSubscribeModalItem(u) {
 		<h2>${u.username}</h2>
 	</div>
 	<div class="subscribe__btn">`;
-	
-	if(!u.equalUserState){ //동일유저가 아닐때 버튼이 만들어짐
-		if(u.subscribeState){ //구독한 상태
+
+	if (!u.equalUserState) { //동일유저가 아닐때 버튼이 만들어짐
+		if (u.subscribeState) { //구독한 상태
 			item += `<button class="cta blue" onclick="toggleSubscribe(${u.id},this)">구독취소</button>`;
-		}else{ //구독안한상태
+		} else { //구독안한상태
 			item += `<button class="cta" onclick="toggleSubscribe(${u.id},this)">구독하기</button>`;
 		}
 	}
@@ -80,12 +80,17 @@ function getSubscribeModalItem(u) {
 	item += `
 	</div>
 </div>`;
-	
+
 	return item;
 }
 
 // (3) 유저 프로파일 사진 변경 (완)
-function profileImageUpload() {
+function profileImageUpload(pageUserId, principalId) {
+	if (pageUserId != principalId) {
+		alert("권한이 없습니다.");
+		return;
+	}
+
 	$("#userProfileImageInput").click();
 
 	$("#userProfileImageInput").on("change", (e) => {
@@ -96,12 +101,32 @@ function profileImageUpload() {
 			return;
 		}
 
+		//서버에 이미지를 전송
+		let profileImageForm = $("#userProfileImageForm")[0];
+
+		//FormData 객체를 이용하면 form태그의 필드와 그 값을 나타내는 key/value쌍을 담을 수 있다.
+		let formData = new FormData(profileImageForm);
+
+		$.ajax({
+			type: "put",
+			url: `/api/user/${principalId}/profileImageUrl`,
+			data: formData,
+			contentType: false, //필수: x-www-form-urlencoded로 파싱되는 것을 방지
+			processData: false,  //필수: contentType을 false로했을 때 queryString자동 설정됨. 해제
+			enctype: "multipart/form-data",
+			dataType: "json"
+		}).done(res => {
 		// 사진 전송 성공시 이미지 변경
-		let reader = new FileReader();
-		reader.onload = (e) => {
-			$("#userProfileImage").attr("src", e.target.result);
-		}
-		reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
+			let reader = new FileReader();
+			reader.onload = (e) => {
+				$("#userProfileImage").attr("src", e.target.result);
+			}
+			reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
+
+		}).fail(error => {
+			console.log("오류", error);
+		});
+
 	});
 }
 

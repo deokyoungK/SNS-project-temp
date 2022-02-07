@@ -28,13 +28,36 @@ public class ImageService {
 	
 
 	@Transactional
+	public List<Image> 인기이미지() {
+		
+		return imageRepository.myPopular();
+	}
+	
+	
+	
+	@Transactional
 	public Page<Image> 이미지불러오기(int principalId, Pageable pageable) {
 		Page<Image> imageList = imageRepository.mystory(principalId,pageable);
+		
+		
+		
+		//2로 로그인
+		//images에 좋아요상태 담아야됨.
+		imageList.forEach((image)->{
+			
+			image.setLikeCount(image.getLikes().size()); //좋아요 수 넣어주기
+			
+			image.getLikes().forEach((like)->{
+				if(like.getUser().getId() == principalId) { //해당 이미지를 좋아요한 사람을 찾아서 현재 로그인한 사람과 같다면
+					image.setLikeState(true);
+				}
+			});
+		});
+		
 		return imageList;
 	}
 	
 
-	
 	@Value("${file.path}")
 	private String uploadFolder;
 	
