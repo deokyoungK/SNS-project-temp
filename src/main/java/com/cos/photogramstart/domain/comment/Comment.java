@@ -13,6 +13,7 @@ import javax.persistence.PrePersist;
 
 import com.cos.photogramstart.domain.image.Image;
 import com.cos.photogramstart.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,10 +34,13 @@ public class Comment {
 	@Column(length=100,nullable=false)
 	private String content;
 	
+	@JsonIgnoreProperties({"images"})
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user;
 	
+
+	@JsonIgnoreProperties({"user"})
 	@ManyToOne
 	@JoinColumn(name="imageId")
 	private Image image;

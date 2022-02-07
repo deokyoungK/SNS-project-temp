@@ -53,7 +53,7 @@ function getStoryItem(image) {
 	}
 
 
-	item += `
+		item += `
 				</button>
 			</div>
 
@@ -63,19 +63,22 @@ function getStoryItem(image) {
 				<p>${image.caption}</p>
 			</div>
 
-			<div id="storyCommentList-${image.id}">
+			<div id="storyCommentList-${image.id}">`;
 
-				<div class="sl__item__contents__comment" id="storyCommentItem-1"">
+				image.comments.forEach((comment)=>{
+					item += `<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
 					<p>
-						<b>Lovely :</b> 부럽습니다.
+						<b>${comment.user.username}</b> ${comment.content}
 					</p>
 
 					<button>
 						<i class="fas fa-times"></i>
 					</button>
+				</div>`;
+				})
 
-				</div>
-
+		
+			item += `
 			</div>
 
 			<div class="sl__item__input">
@@ -92,7 +95,7 @@ function getStoryItem(image) {
 $(window).scroll(() => {
 
 	let checkNum = $(window).scrollTop() - ($(document).height() - $(window).height());
-	console.log(checkNum);
+
 
 	if (checkNum < 1 && checkNum > -1) {
 		page++;
@@ -169,27 +172,23 @@ function addComment(imageId) {
 		contentType: "application/json; charset=utf-8",   //보낼 데이터의 형식
 		dataType: "json" //응답받을 데이터의 형식
 	}).done(res=>{
-		console.log("성공",res);
+		
+		let comment = res.data;
+		let content = `
+		  <div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}"> 
+		    <p>
+		      <b>${comment.user.username} :</b>
+		      ${comment.content}
+		    </p>
+		    <button><i class="fas fa-times"></i></button>
+		  </div>
+		`;
+		commentList.prepend(content);
 	}).fail(error=>{
 		console.log("오류",error)
 	});
 
-
-
-
-
-
-	let content = `
-			  <div class="sl__item__contents__comment" id="storyCommentItem-2""> 
-			    <p>
-			      <b>GilDong :</b>
-			      댓글 샘플입니다.
-			    </p>
-			    <button><i class="fas fa-times"></i></button>
-			  </div>
-	`;
-	commentList.prepend(content);
-	commentInput.val("");
+	commentInput.val(""); //input 필드를 비워준다.
 }
 
 // (5) 댓글 삭제
