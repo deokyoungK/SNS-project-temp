@@ -1,11 +1,13 @@
+//스프링부트 클론코딩 연습//
+
 의존성
-    Sring Boot DevTools
-    Lombok
-    Spring Data JPA
-    MariaDB Driver
-    Spring Security
-    Spring Web
-    oauth2-client
+Spring Boot DevTools
+Lombok
+Spring Data JPA
+MariaDB Driver
+Spring Security
+Spring Web
+oauth2-client
 
 
     <!-- 시큐리티 태그 라이브러리 -->
