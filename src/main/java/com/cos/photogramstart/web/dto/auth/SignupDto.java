@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public class SignupDto {
-
 	@Size(min=2,max=20)
 	@NotBlank
 	private String username;
@@ -28,5 +27,4 @@ public class SignupDto {
 				.name(name)
 				.build();
 	}
-
 }

@@ -12,28 +12,28 @@ import com.cos.photogramstart.domain.user.User;
 
 import lombok.Data;
 
+import javax.transaction.Transactional;
+
+
 @Data
 public class PrincipalDetail implements UserDetails,OAuth2User{
 
 	private User user;
 	private Map<String,Object> attributes;
-	
+
 	public PrincipalDetail(User user) {
 		this.user = user;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
 		Collection<GrantedAuthority> collectors = new ArrayList<>();
 		collectors.add(()->{return user.getRole();});
 		return collectors;
 	}
 
 	@Override
-	public String getPassword() {
-		return user.getPassword();
-	}
+	public String getPassword() { return user.getPassword(); }
 
 	@Override
 	public String getUsername() {
@@ -62,11 +62,6 @@ public class PrincipalDetail implements UserDetails,OAuth2User{
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
-
-	
-	
 }

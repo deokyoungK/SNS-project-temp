@@ -1,8 +1,6 @@
 package com.cos.photogramstart.util;
 
 public class Script {
-
-	
 	public static String back(String msg) {
 
 		StringBuffer sb = new StringBuffer();

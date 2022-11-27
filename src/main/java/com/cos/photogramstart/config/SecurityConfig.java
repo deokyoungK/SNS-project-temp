@@ -12,17 +12,17 @@ import com.cos.photogramstart.config.oauth.OAuth2DetailsService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@EnableWebSecurity // 해당파일로 시큐리티를 활성화
+@EnableWebSecurity // 해당파일로 시큐리티를 활성화, 자동으로 csrf 보호기능 활성화
 @Configuration //IoC
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private final OAuth2DetailsService oAuth2DetailsService;
-	
+
 	@Bean
 	public BCryptPasswordEncoder encode() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
@@ -32,9 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/user/**","/image/**","/subscribe/**","/comment/**","/api/**").authenticated()
 			.anyRequest().permitAll()
 			.and()
-			.formLogin()
+		.formLogin()
 			.loginPage("/auth/signin") //GET
-			.loginProcessingUrl("/auth/signin") //POST -> 시큐리티가 로그인프로세스 진행
+			.loginProcessingUrl("/auth/signin") //POST -> 시큐리티가 로그인 프로세스 진행
 			.defaultSuccessUrl("/")
 			.and()
 			.oauth2Login() //form로그인도 하는데, oauth2로그인도 할거야!

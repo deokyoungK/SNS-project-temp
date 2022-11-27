@@ -11,14 +11,20 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+    jsp:
+      cache: false
 
 
-      
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3307/photogram?serverTimezone=Asia/Seoul
-    username: kang48450
-    password: ksj08588
+    username: cos
+    password: cos1234
     
   jpa:
     open-in-view: true
@@ -38,7 +44,8 @@ spring:
       name: test
       password: 1234   
       
-    oauth2:
+
+    oauth2:
       client:
         registration:
           facebook:
@@ -46,8 +53,9 @@ spring:
             client-secret: 67cb49a77d07997999de3e63a44cca27
             scope: 
             - public_profile
-            - email          
+            - email
+          
 
 file:
-  path: C:/workspace/Springbootwork/upload/
+  path: C:/Users/kang4/spring/instagram/upload/
 

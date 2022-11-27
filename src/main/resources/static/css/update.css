@@ -1,23 +1,27 @@
 @import "header.css";
-@import "footer.css";
 
-/*프로필셋팅 메인*/
-.main {
-  padding-top: 54px;
-  background-color: #fafafa;
+.whole-page{
+  border:1px solid black;
+  display:flex;
+}
+.left-page{
+  background-color: #f6f6f6;
+  width:35%
+}
+.right-page{
+  background-color: #f6f6f6;
+  width:35%
+}
+.page {
+  align-items: center;
+  width:30%;
 }
 
 /*프로필셋팅 섹션*/
 .setting-container {
-  width: 935px;
-  margin: 0 auto;
-  border: 1px solid gainsboro;
-  margin-top: 30px;
-  display: flex;
-  border-radius: 4px;
+  border:1px solid black;
 }
 
-/*프로필셋팅 아티클*/
 .setting-container .setting__content {
   border-left: 1px solid gainsboro;
   display: flex;
@@ -25,17 +29,21 @@
   padding-top: 32px;
   margin-right: 10%;
 }
+.setting-container .item__username{
+  margin-top:10px;
+}
 
 /*프로필 셋팅 내이미지 + 아이디*/
 .setting-container .setting__content .content-item__01 {
   display: flex;
-  margin-bottom: 20px;
+  margin: 50px 0 40px 0;
+
 }
 
 /*프로필 셋팅 요소들 박스*/
 .setting-container .setting__content form > div {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 /* 유저이미지, 유저아이디*/
@@ -59,11 +67,9 @@
 /*form 입력요소 타이틀*/
 .setting-container .setting__content div .item__title {
   flex: 2;
-  padding-right: 30px;
+  margin-right: 30px;
   text-align: right;
-  font-size: 17px;
-  font-weight: 600;
-  padding-top: 7px;
+  font-size: 13px;
 }
 
 /*form 입력요소 인풋박스*/
@@ -76,10 +82,9 @@
 /*form 입력요소 인풋*/
 .setting-container .setting__content div .item__input input {
   border: 1px solid #dbdbdb;
-  height: 32px;
-  padding: 0 10px;
-  border-radius: 3px;
-  font-size: 16px;
+  height: 30px;
+  border-radius: 2px;
+  font-size: 12px;
 }
 
 /*form 입력요소 소개부분*/
@@ -91,26 +96,18 @@
 }
 
 /* 비즈니스나 반려동물 어쩌고*/
-.setting-container .setting__content div .item__input span {
-  color: #8e8e8e;
-  font-size: 12px;
-  padding-top: 10px;
-}
 
 /*제출버튼*/
 .setting-container .setting__content .content-item__11 .item__input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  margin-top:10px;
 }
 
 /*제출버튼*/
 .setting-container .setting__content .content-item__11 .item__input button {
   border: 0;
-  background-color: #0095f6;
+  background-color: #53bfff;
   padding: 5px 9px;
-  border-radius: 4px;
+  border-radius: 2px;
   color: #fff;
   cursor: pointer;
 }

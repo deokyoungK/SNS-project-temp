@@ -13,6 +13,8 @@ import com.cos.photogramstart.handler.ex.CustomValidationException;
 import com.cos.photogramstart.util.Script;
 import com.cos.photogramstart.web.dto.CMRespDto;
 
+import java.util.Map;
+
 @RestController
 @ControllerAdvice //모든 exception을 낚아챈다.
 public class ControllerExceptionHandler {
@@ -22,7 +24,7 @@ public class ControllerExceptionHandler {
 	
 	@ExceptionHandler(CustomValidationException.class)
 	public String validationException(CustomValidationException e) {
-		if(e.getErrorMap()==null) {
+		if(e.getErrorMap() == null) {
 			return Script.back(e.getMessage());
 		}else {
 			return Script.back(e.getErrorMap().toString());

@@ -59,7 +59,7 @@ public class UserApiController {
 			BindingResult bindingResult,
 			@AuthenticationPrincipal PrincipalDetail principalDetail) {
 		
-			User userEntity = userService.회원수정(id, userUpdateDto.toEntity());
+			User userEntity = userService.modify_user(id, userUpdateDto.toEntity());
 			principalDetail.setUser(userEntity); //세션정보변경
 			return new CMRespDto<>(1,"회원수정완료",userEntity);
 		

@@ -1,49 +1,55 @@
 @import "header.css";
 
-/*메인*/
-.main {
-  padding-top: 54px;
+.total{
+  align-items: center;
+  width:30%;
 }
-
-/*컨테이너*/
-.main .container {
-  padding-top: 30px;
-  width: 935px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+.total .title{
+  background-color: #f6f6f6;
 }
-
+.total .page{
+  width:100%;
+}
+.story-block{
+  border:1px solid #d2d2d2;
+  border-radius: 7px;
+}
 /*게시물리스트*/
-.main .container .story-list {
+.page .con .story-list {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
+.up-page{
+  background-color: #f6f6f6;
+  height: 20px;
+}
 /*게시물 리스트 아이템*/
-.main .container .story-list .story-list__item {
-  margin-bottom: 30px;
-  border: 1px solid #dbdbdb;
-  border-radius: 4px;
+.page .con .story-list .story-list__item {
+  border-radius: 50%;
 }
 
 /*리스트 아이템 헤더부분*/
-.main .container .story-list .story-list__item .sl__item__header {
+.page .con .story-list .story-list__item .sl__item__header {
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
+  background-color: #3d4756;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
 /*리스트 아이템 헤더 div*/
-.main .container .story-list .story-list__item .sl__item__header div {
-  margin-left: 10px;
+.page .con .story-list .story-list__item .sl__item__header .story_username {
+  margin-left:5px;
+  color:white;
+  font-weight: bold;
 }
 
 /*리스트 아이템 헤더 이미지영역 박스*/
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__header
@@ -56,8 +62,8 @@
 }
 
 /*리스트 아이템 헤더 실제이미지*/
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__header
@@ -69,152 +75,199 @@
 }
 
 /* 게시물 이미지 박스*/
-.main .container .story-list .story-list__item .sl__item__img {
-  height: 600px;
-  min-height: 300px;
+.page .con .story-list .story-list__item .sl__item__img {
+  margin-top:15px;
+  height: 400px;
+  min-height: 200px;
+  border-radius: 25px;
 }
 
 /* 게시물 이미지*/
-.main .container .story-list .story-list__item .sl__item__img img {
+.page .con .story-list .story-list__item .sl__item__img img {
   width: 100%;
   height: 100%;
 }
 
 /* 게시물 이미지 밑에 영역들 */
-.main .container .story-list .story-list__item .sl__item__contents {
+.page .con .story-list .story-list__item .sl__item__contents {
   display: flex;
   flex-direction: column;
 }
 
+/*좋아요 아이콘, 갯수 영역 */
+.like_div{
+  display:flex;
+}
+
 /*좋아요 버튼영역*/
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__contents
   .sl__item__contents__icon {
   height: 40px;
-  padding: 5px 0;      
+  padding: 5px 0;
 }
 
 /*좋아요 실제 버튼*/
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__contents
   .sl__item__contents__icon
   button {
   background-color: transparent;
-  width: 40px;
-  font-size: 25px;
-  
+  width: 30px;
+  font-size: 20px;
   border: 0;
   cursor: pointer;
 }
 
 /*게시물 내용*/
-.main
-  .container
-  .story-list
-  .story-list__item
-  .sl__item__contents
-  .sl__item__contents__content {
-  padding: 5px 15px;
+.sl__item__contents__content{
+
+}
+sl__item__contents__content .image_caption{
+  font-size:12px;
+
 }
 
 /*게시물 like 갯수스타일*/
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__contents .like{
 	background-color: transparent;
 	border: 0;
 	color: #aaa;
-	font-size: 14px;
-	margin-bottom: 5px;
-	text-indent: 15px;
+	font-size: 12px;
+    margin-top:10px;
+
 }
 /*게시물 좋아요 count값 */
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
 .sl__item__contents .like b{
 	margin-right: 5px;
 }
 
+/*좋아요,댓글달기 버튼 영역*/
+.goodsAndComments{
+  display:flex;
+  justify-content: space-around;
+  height:30px;
+
+}
+
+.goodsAndComments .goods{
+  border:none;
+  background-color: white;
+  width:50%;
+}
+.goodsAndComments .goods:hover{
+  background-color: #c7dfcf;
+}
+.goodsAndComments .comments{
+  border:none;
+  background-color: white;
+  width:50%;
+}
+.goodsAndComments .comments:hover{
+  background-color: #c7dfcf;
+}
+
 /*태그영역*/
 .sl__item__contents__tags{
   height: 40px;
-  padding: 5px 10px;  
+  padding: 5px 10px;
   color: #0080ff;
 }
 
-/*코멘트 = 댓글 */
-.main
-  .container
+.commenter_image{
+  width:25px;
+  border-radius: 50%;
+
+}
+
+/*댓글 */
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__contents
   .sl__item__contents__comment
   {
+  margin-top:5px;
   display:flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content:space-between;
   background-color: transparent;
-  color: #000;
-  font-size: 16px;
-  padding: 0 15px;
+  font-size: 12px;
   margin-bottom: 5px;
 }
+.username_content{
+  text-align:center;
+  text-align: center;
+  padding:5px 0;
 
+}
 /*댓글 삭제버튼*/
-.main
-  .container
-  .story-list
-  .story-list__item
-  .sl__item__contents
-.sl__item__contents__comment button{ border: none; outline: none; background: #fff; cursor: pointer;}
+
+.delete-btn{
+  width:40px;
+  cursor:pointer;
+  border: none;
+  background-color: #e3e3e3;
+  border-radius: 4px;
+  margin-right:2px;
+}
 
 /* 댓글 입력창*/
-.main .container .story-list .story-list__item .sl__item__input {
+.page .con .story-list .story-list__item .sl__item__input {
+  margin-top:10px;
   display: flex;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid #bdbdbd;
+  border-radius: 4px;
+  border-bottom: 1px solid #bdbdbd;
 }
 
 /*입력 인풋*/
-.main .container .story-list .story-list__item .sl__item__input input {
+.page .con .story-list .story-list__item .sl__item__input input {
   flex: 9;
-  height: 56px;
+  height: 30px;
   border: 0;
   padding-left: 15px;
+  border-radius: 4px;
 }
 /* 입력하기 버튼 */
-.main .container .story-list .story-list__item .sl__item__input button {
+.page .con .story-list .story-list__item .sl__item__input button {
   flex: 1;
-  height: 56px;
-  border: 0;
-  background-color: transparent;
-  font-weight: 500;
-  color: #0095f6;
-  font-size: 14px;
+  height: 30px;
+  font-size: 12px;
+  color:white;
+  background-color: #3d4756;
+  border:none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 /* Event */
-.main
-  .container
+.page
+  .con
   .story-list
   .story-list__item
   .sl__item__contents
   .sl__item__contents__icon
   button:first-child
   .active {
-  color: red;
+  color: blue;
 }
 
 .profile-image {
-  border: 2px solid #8a3ab8;
+  border: 1px solid #000000;
 }
 

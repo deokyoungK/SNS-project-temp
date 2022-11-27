@@ -1,5 +1,6 @@
 package com.cos.photogramstart.web;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import com.cos.photogramstart.web.dto.user.UserProfileDto;
 
 import lombok.RequiredArgsConstructor;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class UserController {
@@ -24,13 +26,10 @@ public class UserController {
 		model.addAttribute("dto", dto);
 		return "user/profile";
 	}
-	
+
+
 	@GetMapping("/user/{id}/update")
-	public String update(@PathVariable int id) {
+	public String update(@PathVariable int id, @AuthenticationPrincipal PrincipalDetail principalDetail) {
 		return "user/update";
 	}
-	
-
-	
-	
 }

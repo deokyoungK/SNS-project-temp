@@ -24,6 +24,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Builder
 @AllArgsConstructor
@@ -47,9 +48,7 @@ public class Image {
 	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
 	private List<Likes> likes;
-	
-	
-	
+
 	//댓글
 	@OrderBy("id DESC")
 	@JsonIgnoreProperties({"image"})

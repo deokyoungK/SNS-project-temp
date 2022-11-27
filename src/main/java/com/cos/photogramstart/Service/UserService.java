@@ -82,9 +82,10 @@ public class UserService {
 		return dto;
 	}
 	
-	
+
+	// 회원 수정
 	@Transactional
-	public User 회원수정(int id, User user) {
+	public User modify_user(int id, User user) {
 		
 		User userEntity = userRepository.findById(id).orElseThrow(()->{
 			return new CustomValidationApiException("찾을 수 없는 id입니다.");

@@ -39,4 +39,3 @@
         <br/><br/>
 	
 	<script src="/js/upload.js" ></script>
-    <%@ include file="../layout/footer.jsp" %>

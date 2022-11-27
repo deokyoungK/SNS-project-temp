@@ -13,12 +13,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photogram</title>
+<title>Instagram</title>
 
 	<!-- 제이쿼리 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
 	<!-- Style -->
+	<link rel="stylesheet" href="/css/header.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/story.css">
 	<link rel="stylesheet" href="/css/popular.css">
@@ -30,31 +31,34 @@
 	<!-- Fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	
 	<!-- principalId 담아두는곳 -->
 	<input type="hidden" id="principalId" value="${principal.user.id}">
-	
-	
+
 	<header class="header">
-		<div class="container">
+		<div class="con">
 			<a href="/" class="logo">
-				<img src="/images/logo.jpg" alt="">
+				<i class="fas fa-smile" ></i> SNS
 			</a>
 			<nav class="navi">
 				<ul class="navi-list">
 					<li class="navi-item"><a href="/">
-							<i class="fas fa-home"></i>
+						좋아요목록
 						</a></li>
-					<li class="navi-item"><a href="/image/popular">
-							<i class="far fa-compass"></i>
-						</a></li>
+					<li class="navi-item"><a href="/">
+						채팅
+					</a></li>
 					<li class="navi-item"><a href="/user/${principal.user.id }">
-							<i class="far fa-user"></i>
-						</a></li>
+						마이페이지
+					</a></li>
 				</ul>
 			</nav>
 		</div>

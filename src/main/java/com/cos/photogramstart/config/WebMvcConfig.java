@@ -11,8 +11,8 @@ public class WebMvcConfig implements WebMvcConfigurer{
 
 	@Value("${file.path}")
 	private String uploadFolder;
-	
-	//C:/workspace/Springbootwork/upload/
+
+//	C:/Users/kang4/spring/instagram/upload/
 	@Override 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		WebMvcConfigurer.super.addResourceHandlers(registry);

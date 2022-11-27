@@ -1,24 +1,24 @@
 @import "header.css";
 @import "footer.css";
 
-.exploreContainer {
-  width: 935px;
-  margin: 0 auto;
-  height: 100%;
-}
 
 .popular {
   width: 100%;
-  padding-top: 84px;
-  padding-bottom: 30px;
+  margin-top:150px;
+
 }
+
+
 .popular .exploreContainer {
+  width: 800px;
+  margin: 0 auto;
+  height: 100%;
   flex-direction: column;
 }
 .popular .exploreContainer .popular-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 }
 
 .popular .exploreContainer .popular-gallery .p-img-box img {

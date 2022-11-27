@@ -13,21 +13,22 @@ import lombok.RequiredArgsConstructor;
 @Service // IoC, 트랜잭션 관리 해줌
 public class AuthService {
 
-	
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	
-	@Transactional // Write
-	public void 회원가입(User user) {
-		
+
+	@Transactional // Write(insert, update, delete할때)
+	public User signup(User user) {
+
+		//비밀번호 encode
 		String rawPassword = user.getPassword();
 		String encPassword = bCryptPasswordEncoder.encode(rawPassword);
 		user.setPassword(encPassword);
+
 		user.setRole("ROLE_USER");
 		
-		userRepository.save(user);
-		
+		User userEntity = userRepository.save(user);
+
+		return userEntity;
 	}
 	
 	

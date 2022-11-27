@@ -14,8 +14,8 @@ import com.cos.photogramstart.handler.ex.CustomValidationApiException;
 import com.cos.photogramstart.handler.ex.CustomValidationException;
 
 
-@Component //RestController, Service 모든것들이 component를 상속해서 만들어져있다.
-@Aspect
+//@Component //RestController, Service 모든것들이 component를 상속해서 만들어져있다.
+//@Aspect
 public class ValidationAdvice {
 
 	@Around("execution(* com.cos.photogramstart.web.api.*Controller.*(..))")

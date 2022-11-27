@@ -1,49 +1,44 @@
 @import "header.css";
-@import "footer.css";
 
-/* Fonts */
-@font-face {
-  font-family: is;
-  src: url(../fonts/billabong.ttf);
+.middle-page{
+  width:30%;
+}
+.page-bottom{
+  background-color: #f6f6f6;
+  height:240px;
+}
+.up-page{
+  padding-top:70px;
+  padding-bottom:30px;
+  font-size:20px;
+  font-weight: bold;
 }
 
-
-.profileContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 935px;
-  margin: 0 auto;
-  height: 100%;
-}
-
-/* Profile */
 .profile {
-  height: 170px;
+  border:1px solid black;
   display: flex;
-  margin: 54px 0 44px;
 }
-.profile > .profileContainer {
-  padding: 30px 20px 0;
+.profileContainer {
+  border:1px solid black;
+  display: flex;
+  width: 100%;
 }
-.profile .profile-left,
-.profile .profile-right {
-  height: 100%;
-}
+
 .profile .profile-left {
-  flex-basis: 40%;
-  display: flex;
-  justify-content: center;
+  border:1px solid black;
+  width:35%;
 }
+
 .profile .profile-right {
-  flex-basis: 60%;
+  border:1px solid black;
+  width:65%;
 }
+
 .profile .profile-left .profile-img-wrap {
-  width: 162px;
-  height: 162px;
+  width: 120px;
+  height: 120px;
   padding: 6px;
   border-radius: 50%;
-  position: relative;
   cursor: pointer;
 }
 .profile .profile-left .profile-img-wrap img {
@@ -51,25 +46,29 @@
   height: 100%;
   border-radius: 50%;
 }
+
 .profile .profile-right .name-group {
   display: flex;
   margin-bottom: 20px;
+  margin-right:20px;
+  font-size:15px;
 }
-.profile .profile-right .name-group h2 {
-  font-weight: normal;
-  font-family: "Montserrat", sans-serif;
-  margin-right: 30px;
+.profile .profile-right .name-group .user_name {
+  font-size:12px;
+  margin-top:20px;
+  margin-left:20px;
 }
 .profile .profile-right .name-group .cta {
-  margin-right: 10px;
-  padding: 5px 9px;
-  border: 1px solid rgba(var(--ca6, 219, 219, 219), 1);
-  border-radius: 4px;
+  margin-top:10px;
+  margin-left: 10px;
+  font-size:10px;
+  height:34px;
+  border-radius: 3px;
   color: #262626;
-  font-weight: bold;
-  background: transparent;
 }
 .profile .profile-right .name-group .modi {
+  color: #15158f;
+  margin-top:10px;
   border: none;
   background: none;
 }
@@ -79,136 +78,71 @@
 }
 .profile .profile-right .subscribe {
   height: 28px;
-  margin-bottom: 5px;
+  border:1px solid black;
 }
 .profile .profile-right .subscribe ul {
   display: flex;
 }
 .profile .profile-right .subscribe ul li {
-  margin-right: 18px;
+  margin-left:20px;
 }
 .profile .profile-right .subscribe ul li a {
-  font-size: 16px;
-  color: #262626;
-}
-.profile .profile-right .subscribe ul li a span {
-  font-weight: bold;
-  margin-left: 4px;
-}
-.profile .profile-right .state h4 {
-  margin-bottom: 2px;
-}
-
-/* story */
-.story {
-  height: 130px;
-  margin-bottom: 44px;
-}
-.story .profileContainer {
-  padding: 0 48px;
-  display: flex;
-  justify-content: flex-start;
-}
-.story .profileContainer .story-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 24px;
-  cursor: pointer;
-}
-.story .profileContainer .story-item .stroy-img {
-  width: 87px;
-  height: 87px;
-  padding: 3px;
-  border: 1px solid gainsboro;
-  border-radius: 50%;
-}
-.story .profileContainer .story-item .stroy-img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-.story .profileContainer .story-item .story-name {
-  padding-top: 10px;
-}
-.story .profileContainer .story-item .story-name p {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* Tab-controller */
-.gallery .profileContainer .controller {
-  height: 20px;
-  width: 100%;
-  border-top: 1px solid #dbdbdb;
-}
-.gallery .profileContainer .controller .con-list .tab-item {
-  margin-right: 60px;
-  height: 100%;
-  line-height: 53px;
-}
-.gallery .profileContainer .controller .con-list {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.gallery .profileContainer .controller .con-list a {
-  color: rgba(var(--f52, 142, 142, 142), 1);
-  display: inline-block;
-  height: 100%;
-}
-.gallery .profileContainer .controller .con-list i {
-  font-size: 8px;
-  margin-right: 6px;
-  vertical-align: 1px;
-}
-.gallery .profileContainer .controller .con-list span {
   font-size: 12px;
+  color: #646464;
+}
+.profile .profile-right .state{
+  border:1px solid black;
+
+}
+.profile .profile-right .state .bio{
+  margin-top:10px;
+  margin-left:20px;
+  font-size:12px;
+}
+.profile .profile-right .state .website{
+  margin-top:10px;
+  margin-left:20px;
+  margin-bottom: 10px;
+  font-size:12px;
+
 }
 
+
+/*중간div*/
+.tab-content-title{
+  font-size:13px;
+  font-weight: bold;
+  padding-top:40px;
+  background-color: #f6f6f6;
+}
+/*중간div끝*/
+
+#tab-1-content{
+  border:1px solid blue;
+}
+#tab-1-content .title{
+  font-size:13px;
+}
 /* Tab-content 1*/
 #tab-content #tab-1-content {
+  border:1px solid black;
   width: 100%;
-  margin-bottom: 30px;
 }
 #tab-content #tab-1-content .tab-1-content-inner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
 }
 #tab-content #tab-1-content .tab-1-content-inner .img-box {
   position: relative;
-  height: 293px;
+  height: 200px;
 }
 #tab-content #tab-1-content .tab-1-content-inner .img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-#tab-content #tab-1-content .tab-1-content-inner .img-box .comment {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  opacity: 0;
-}
-#tab-content #tab-1-content .tab-1-content-inner .img-box:hover .comment {
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 1;
-}
-#tab-content #tab-1-content .tab-1-content-inner .img-box .comment a,#tab-content #tab-1-content .tab-1-content-inner .img-box .comment a span{
-  color: #fff;
-}
-#tab-content #tab-1-content .tab-1-content-inner .img-box .comment a i {
-  margin-right: 10px;
-}
+
 
 /* Sub2 */
 .popular {
@@ -265,7 +199,7 @@
 
 
 .profile-image {
-  border: 2px solid #8a3ab8;
+  border: 1px solid black;
 }
 
 .modal-image {
