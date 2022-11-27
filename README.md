@@ -1,9 +1,27 @@
-### 스프링부트 인스타그램 클론코딩
+# SNS프로젝트
+
+UX/UI - facebook참고하여 수정중  
+기본 틀 - https://github.com/codingspecialist/EaszUp-Springboot-Photogram-Start
+
+### 기존 기능
+---
++ 게시글 - Create, Read
++ 댓글작성
++ 친구추가
++ 좋아요 기능
+
+### 추가 작업
+---
++ UX/UI 수정
++ 게시글 - Update, Delete
++ 채팅, 검색기능
++ 기타 js작업
++ DB 수정
 
 
+### 의존성
+---
 ```
-의존성
-
 Spring Boot DevTools
 Lombok
 Spring Data JPA
@@ -13,30 +31,8 @@ Spring Web
 oauth2-client
 ```
 
+### DB설계도
+---
 ```
-시큐리티 태그 라이브러리
-
-<dependency>
-	<groupId>org.springframework.security</groupId>
-	<artifactId>spring-security-taglibs</artifactId>
-</dependency>
-```
-
-```
-JSP 템플릿 엔진
-
-<dependency>
-	<groupId>org.apache.tomcat</groupId>
-	<artifactId>tomcat-jasper</artifactId>
-	<version>9.0.43</version>
-</dependency>
-```
-
-```
-JSTL
-
-<dependency>
-	<groupId>javax.servlet</groupId>
-	<artifactId>jstl</artifactId>
-</dependency>
+작성 예정
 ```
